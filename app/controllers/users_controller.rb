@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
   before_filter :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
@@ -13,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
   end
+
 
   def new
     @user = User.new
